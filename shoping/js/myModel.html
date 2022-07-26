@@ -1,0 +1,23 @@
+{{each data item index }}
+<div class="cart-item">
+    <div class="p-checkbox">
+        <input type="checkbox" name="" id="" class="j-checkbox">
+    </div>
+    <div class="p-goods">
+        <div class="p-img">
+            <img src='{{ item.GoodImg }}' alt="">
+        </div>
+        <div class="p-msg">{{item.GoodsName}}</div>
+    </div>
+    <div class="p-price">￥{{item.GoodPrice}}</div>
+    <div class="p-num">
+        <div class="quantity-form">
+            <a href="javascript:;" class="decrement">-</a>
+            <input type="text" class="itxt" value="1">
+            <a href="javascript:;" class="increment">+</a>
+        </div>
+    </div>
+    <div class="p-sum">￥{{item.GoodPrice}}</div>
+    <div class="p-action"><a href="javascript:;">删除</a></div>
+</div>
+{{/each}}

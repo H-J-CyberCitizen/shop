@@ -15,7 +15,18 @@ app.use(expressjwt({secret:key}).unless({path:/^\/api\//}))
 
 app.use('/api',apiRouter)
 app.use('/user',userRouter)
-app.use()
+app.use((err,req,res,next)=>{
+    if(err.name==='UnauthorizedError'){
+        return res.send({
+            status:401,
+            msg:'无效token'
+        })
+    }
+    res.send({
+        status:500,
+        msg:'未知错误'
+    })
+})
 app.listen('8080',()=>{
     console.log("Running at http://localhost:8080");
 })
